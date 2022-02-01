@@ -3,12 +3,27 @@ document.getElementById('last-name').addEventListener('keyup', updateDragonName)
 document.getElementById('mothers-name').addEventListener('keyup', updateDragonName);
 document.getElementById('fathers-name').addEventListener('keyup', updateDragonName);
 
-function updateDragonName() {
-	let firstName = document.getElementById('first-name');
-	let lastName = document.getElementById('last-name');
-	let mothersName = document.getElementById('mothers-name');
-	let fathersName = document.getElementById('fathers-name');
-	let dragonName = document.getElementById('dragon-name');
+document.getElementById('clear').addEventListener('click', function() {
+	document.getElementById('first-name').value = '';
+	document.getElementById('last-name').value = '';
+	document.getElementById('mothers-name').value = '';
+	document.getElementById('fathers-name').value = '';
 
-	dragonName.innerText = firstName.value.slice(-2) + lastName.value.slice((lastName.value.length / 2) - 1, (lastName.value.length / 2) + 1) + mothersName.value.slice(0, 2) + fathersName.value.slice(-1);
+	updateDragonName();
+});
+
+function updateDragonName() {
+	let partOne = document.getElementById('first-name').value.slice(-2);
+	let lastName = document.getElementById('last-name');
+	let firstIndex = (lastName.value.length / 2) - 1;
+	let secondIndex = (lastName.value.length / 2) + 1;
+	let partTwo = lastName.value.slice(firstIndex, secondIndex);
+	let partThree = document.getElementById('mothers-name').value.slice(0, 2);
+	let partFour = document.getElementById('fathers-name').value.slice(-1);
+	let dragonName = partOne + partTwo + partThree + partFour;
+	dragonName = dragonName.slice(0,1).toUpperCase() + dragonName.slice(1).toLowerCase();
+	
+	if (dragonName === '') dragonName = 'Dragon Name';
+
+	document.getElementById('dragon-name').innerText = dragonName;
 }

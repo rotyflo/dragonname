@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,25 +9,16 @@
 
 	<link rel="stylesheet" href="https://unpkg.com/terminal.css@0.7.2/dist/terminal.min.css" />
 </head>
-<body>
-	<label>
-		First Name: 
-		<input type="text" id="first-name">
-	</label>
-	<label>
-		Last Name: 
-		<input type="text" id="last-name">
-	</label>
-	<label>
-		Mother's Name: 
-		<input type="text" id="mothers-name">
-	</label>
-	<label>
-		Father's Name: 
-		<input type="text" id="fathers-name">
-	</label>
-	<p id="dragon-name"></p>
+
+<body class="container">
+	<h1 id="dragon-name">Dragon Name</h1>
+	<input type="text" id="first-name" placeholder="First Name">
+	<input type="text" id="last-name" placeholder="Last Name">
+	<input type="text" id="mothers-name" placeholder="Mother's Name">
+	<input type="text" id="fathers-name" placeholder="Father's Name">
+	<button class="btn btn-error" id="clear" style="float: right;">clear</button>
 </body>
 
 <script src="./main.js"></script>
+
 </html>
