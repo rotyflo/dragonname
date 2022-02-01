@@ -12,6 +12,21 @@ document.getElementById('clear').addEventListener('click', function() {
 	updateDragonName();
 });
 
+document.getElementById('toggle-visibility').addEventListener('click', function() {
+	let inputType = 'password';
+	document.getElementById('toggle-visibility').innerText = 'Show';
+	document.getElementById('toggle-visibility').className = 'btn btn-primary';
+	if (document.getElementById('first-name').type === 'password') {
+		inputType = 'text';
+		document.getElementById('toggle-visibility').innerText = 'Hide';
+		document.getElementById('toggle-visibility').className = 'btn btn-primary btn-ghost';
+	}
+	document.getElementById('first-name').type = inputType;
+	document.getElementById('last-name').type = inputType;
+	document.getElementById('mothers-name').type = inputType;
+	document.getElementById('fathers-name').type = inputType;
+});
+
 function updateDragonName() {
 	let partOne = document.getElementById('first-name').value.slice(-2);
 	let lastName = document.getElementById('last-name');
